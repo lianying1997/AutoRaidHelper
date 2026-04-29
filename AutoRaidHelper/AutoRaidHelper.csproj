@@ -58,7 +58,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="TerraFX.Interop.Windows" Version="10.0.26100.6" />
+    <PackageReference Include="TerraFX.Interop.Windows" Version="10.0.26100.6" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <ItemGroup>
