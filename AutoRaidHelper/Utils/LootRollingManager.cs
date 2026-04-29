@@ -1,4 +1,5 @@
-﻿using Dalamud.Game.Text;
+﻿using Dalamud.Game.Chat;
+using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.Plugin.Services;
@@ -133,9 +134,12 @@ public class LootRollingManager : IDisposable
         }
     }
 
-    private void OnChatMessage(XivChatType type, int senderId, ref SeString sender, ref SeString message, ref bool isHandled)
+    private void OnChatMessage(IHandleableChatMessage chatMessage)
     {
         var settings = FullAutoSettings.Instance.LootRollingSettings;
+        var type = chatMessage.LogKind;
+        var message = chatMessage.Message;
+
         if (!settings.AutoRollEnabled || type != (XivChatType)2105) return;
 
         var textValue = message.TextValue;

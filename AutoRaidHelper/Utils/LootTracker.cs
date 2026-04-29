@@ -1,4 +1,5 @@
 using AEAssist.Helper;
+using Dalamud.Game.Chat;
 using Dalamud.Game.ClientState.Conditions;
 using ECommons.DalamudServices;
 using Dalamud.Game.Text;
@@ -53,10 +54,12 @@ namespace AutoRaidHelper.Utils
             }
         }
 
-        private static void OnChatMessage(XivChatType type, int timestamp, ref SeString sender, ref SeString message, ref bool isHandled)
+        private static void OnChatMessage(IHandleableChatMessage chatMessage)
         {
             try
             {
+                var message = chatMessage.Message;
+
                 // 必须在副本内
                 if (!Svc.Condition[ConditionFlag.BoundByDuty])
                     return;

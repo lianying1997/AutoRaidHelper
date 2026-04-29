@@ -277,7 +277,7 @@ public class RoomClientManager : IDisposable
 
         return new PlayerInfo
         {
-            CID = CidHelper.GetCid().ToString(),
+            CID = Share.LocalContentId.ToString(),
             Name = me?.Name.ToString() ?? "Unknown",
             WorldId = (int)(me?.HomeWorld.RowId ?? 0),
             Job = GetCurrentJobName(),

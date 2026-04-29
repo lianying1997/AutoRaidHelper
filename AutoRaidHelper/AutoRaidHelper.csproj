@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Dalamud.CN.NET.Sdk/14.0.2">
 
   <PropertyGroup>
     <TargetFramework>net10.0-windows</TargetFramework>
@@ -50,7 +50,7 @@
 
   <ItemGroup>
     <PackageReference Remove="DalamudPackager" />
-    <PackageReference Include="AEAssist.NET" Version="*" ExcludeAssets="runtime" />
+<!--    <PackageReference Include="AEAssist.NET" Version="*" ExcludeAssets="runtime" />-->
     <PackageReference Include="Costura.Fody" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -59,6 +59,18 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="TerraFX.Interop.Windows" Version="10.0.26100.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AEAssist">
+      <HintPath>D:\ffxivtools\AEAssist\AEAssistCNVersion\AEAssist\AEAssist.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <Reference Include="ECommons">
+      <HintPath>D:\ffxivtools\AEAssist\AEAssistCNVersion\AEAssist\ECommons.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
 
 </Project>

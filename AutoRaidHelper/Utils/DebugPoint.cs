@@ -23,19 +23,20 @@ public static class DebugPoint
             const float radius = 4f;
             const float lineThickness = 2f;
 
-            // 先画线
-            for (int i = 0; i < Points.Count - 1; i++)
-            {
-                Svc.GameGui.WorldToScreen(Points[i], out var p1);
-                Svc.GameGui.WorldToScreen(Points[i + 1], out var p2);
-                drawList.AddLine(p1, p2, red, lineThickness);
-            }
+            // // 先画线
+            // for (int i = 0; i < Points.Count - 1; i++)
+            // {
+            //     Svc.GameGui.WorldToScreen(Points[i], out var p1);
+            //     Svc.GameGui.WorldToScreen(Points[i + 1], out var p2);
+            //     drawList.AddLine(p1, p2, red, lineThickness);
+            // }
 
             // 再画点和序号
             for (int i = 0; i < Points.Count; i++)
             {
                 if (Svc.GameGui.WorldToScreen(Points[i], out var screenPos))
                 {
+                    drawList.AddCircleFilled(screenPos, radius + 1.5f, yellow);
                     drawList.AddCircleFilled(screenPos, radius, red);
                     Vector2 textPos = new(screenPos.X + radius + 4, screenPos.Y - radius / 2);
                     drawList.AddText(textPos, yellow, $"[{i + 1}]");
